@@ -1,0 +1,44 @@
+@import "variables";
+
+header {
+  height: 70px;
+  background-color: $color-primary-6;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+a {
+  font-size: 36px;
+  text-decoration: none;
+}
+
+.logo-link {
+  font-family: $ff-header-primary;
+  // font-family: "Pacifico", cursive;
+  color: $color-secondary-1;
+}
+
+ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  font-family: $ff-text-primary;
+}
+
+li {
+  margin-left: 40px;
+}
+
+.auth-link {
+  color: $color-neutral-4;
+  font-size: 18px;
+  &:hover {
+    color: $color-neutral-1;
+  }
+}
