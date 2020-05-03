@@ -1,17 +1,29 @@
 <header>
   <div class="container">
-    <div class="content">
-      <div class="logo">
-        <a class="logo-link" href="/">TODO LIST</a>
+    <div class="inner">
+      <div>
+        <a class="logo-link" href="/">TodoList</a>
       </div>
-      <ul>
-        <li>
-          <a class="auth-link" href="/login">Login</a>
-        </li>
-        <li>
-          <a class="auth-link" href="/register">Register</a>
-        </li>
-      </ul>
+      <nav>
+        <ul *ngIf="authService.user$ | async as user; else auth">
+          <li>
+            {{ user | json }}
+          </li>
+          <li>
+            <button (click)="logout()">Logout</button>
+          </li>
+        </ul>
+        <ng-template #auth>
+          <ul>
+            <li>
+              <a class="auth-link" href="/login">Login</a>
+            </li>
+            <li>
+              <a class="auth-link" href="/register">Register</a>
+            </li>
+          </ul>
+        </ng-template>
+      </nav>
     </div>
   </div>
 </header>
