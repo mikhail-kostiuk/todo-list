@@ -2,7 +2,7 @@
   <div class="container">
     <div class="inner">
       <div>
-        <a class="logo-link" href="/">TodoList</a>
+        <a class="logo-link" [routerLink]="['/']">TodoList</a>
       </div>
       <nav>
         <ul *ngIf="authService.user$ | async as user; else auth">
@@ -16,10 +16,10 @@
         <ng-template #auth>
           <ul>
             <li>
-              <a class="auth-link" href="/login">Login</a>
+              <a class="auth-link" [routerLink]="['/login']">Login</a>
             </li>
             <li>
-              <a class="auth-link" href="/register">Register</a>
+              <a class="auth-link" [routerLink]="['/register']">Register</a>
             </li>
           </ul>
         </ng-template>
