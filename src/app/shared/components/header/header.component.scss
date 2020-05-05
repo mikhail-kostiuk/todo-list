@@ -1,45 +1,75 @@
 @import "variables";
 
-header {
-  background-color: $color-primary-3;
-}
+.header {
+  background-color: $color-neutral-4;
 
-.inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px;
-}
+  &__content {
+    display: flex;
+    align-items: center;
+    height: 60px;
+  }
 
-a {
-  font-size: 24px;
-  text-decoration: none;
-}
+  &__logo {
+    margin-top: -6px;
+  }
 
-ul {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  height: 100%;
-  font-family: $ff-text-primary;
-}
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-left: 80px;
+    font-family: $ff-text-primary;
 
-li {
-  margin-left: 40px;
-}
+    &--right {
+      justify-content: flex-end;
+    }
+  }
 
-.logo-link {
-  display: block;
-  font-size: 32px;
-  font-family: "Lobster", cursive;
-  color: $color-white;
-}
+  &__list {
+    display: flex;
+  }
 
-.auth-link {
-  // color: $color-neutral-1;
-  color: $color-white;
-  font-size: 18px;
-  &:hover {
-    color: rgba($color: $color-white, $alpha: 0.7);
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &--button {
+      height: 100%;
+    }
+  }
+
+  &__link {
+    color: $color-white;
+    font-size: 18px;
+    text-decoration: none;
+
+    &:hover {
+      color: rgba($color: $color-white, $alpha: 0.7);
+    }
+  }
+
+  &__user {
+    color: $color-accent-6;
+  }
+
+  &__button {
+    height: 100%;
+    padding: 10px;
+    border: none;
+    background-color: $color-accent-5;
+    color: $color-white;
+    font-size: 18px;
+
+    &:hover {
+      color: rgba($color: $color-white, $alpha: 0.7);
+      background-color: $color-accent-6;
+      cursor: pointer;
+    }
   }
 }

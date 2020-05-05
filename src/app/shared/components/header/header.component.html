@@ -1,29 +1,49 @@
-<header>
+<header class="header">
   <div class="container">
-    <div class="inner">
-      <div>
-        <a class="logo-link" [routerLink]="['/']">TodoList</a>
+    <div class="header__content">
+      <div class="header__logo">
+        <app-logo></app-logo>
       </div>
-      <nav>
-        <ul *ngIf="authService.user$ | async as user; else auth">
-          <li>
-            {{ user | json }}
-          </li>
-          <li>
-            <button (click)="logout()">Logout</button>
+      <nav
+        class="header__nav"
+        *ngIf="authService.user$ | async as user; else auth"
+      >
+        <ul class="header__list">
+          <li class="header__item">
+            <a
+              class="header__link"
+              [routerLink]="['/todos']"
+              routerLinkActive="router-link-active"
+              >My Todos</a
+            >
           </li>
         </ul>
-        <ng-template #auth>
-          <ul>
-            <li>
-              <a class="auth-link" [routerLink]="['/login']">Login</a>
+        <ul class="header__list">
+          <li class="header__item">
+            <span class="header__user">
+              {{ user.email }}
+            </span>
+          </li>
+          <li class="header__item header__item--button">
+            <button class="header__button" (click)="logout()">Logout</button>
+          </li>
+        </ul>
+      </nav>
+
+      <ng-template #auth>
+        <nav class="header__nav header__nav--right">
+          <ul class="header__list">
+            <li class="header__item">
+              <a class="header__link" [routerLink]="['/auth/login']">Login</a>
             </li>
-            <li>
-              <a class="auth-link" [routerLink]="['/register']">Register</a>
+            <li class="header__item">
+              <a class="header__link" [routerLink]="['/auth/register']"
+                >Register</a
+              >
             </li>
           </ul>
-        </ng-template>
-      </nav>
+        </nav>
+      </ng-template>
     </div>
   </div>
 </header>

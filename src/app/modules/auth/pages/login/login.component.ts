@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { AuthService } from 'src/app/core/authentification/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +12,6 @@ export class LoginComponent {
   error: string;
 
   constructor(
-    private router: Router,
     private formBuilder: FormBuilder,
     private authService: AuthService
   ) {
@@ -25,9 +23,7 @@ export class LoginComponent {
 
   async onSubmit({ email, password }): Promise<boolean> {
     try {
-      await this.authService.signIn(email, password);
-
-      return this.router.navigate(['/todos']);
+      return await this.authService.signIn(email, password);
     } catch (err) {
       this.error = err.message;
     }

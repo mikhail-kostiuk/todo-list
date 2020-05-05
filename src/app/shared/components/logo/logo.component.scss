@@ -1,0 +1,11 @@
+@import "variables";
+
+.logo {
+  font-family: "Lobster", cursive;
+  font-size: 32px;
+
+  &__link {
+    color: $color-white;
+    text-decoration: none;
+  }
+}

@@ -17,12 +17,13 @@ export class AuthService {
   user$: Observable<User>;
 
   constructor(
+    private router: Router,
     private fireAuth: AngularFireAuth,
-    private firestore: AngularFirestore,
-    private router: Router
+    private firestore: AngularFirestore
   ) {
     this.user$ = this.fireAuth.authState.pipe(
       switchMap((user) => {
+        console.log(user);
         if (user) {
           return this.firestore.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
@@ -56,6 +57,6 @@ export class AuthService {
 
   async signOut(): Promise<boolean> {
     await this.fireAuth.signOut();
-    return this.router.navigate(['/login']);
+    return this.router.navigate(['/auth/login']);
   }
 }

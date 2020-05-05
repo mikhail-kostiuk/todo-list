@@ -1,6 +1,10 @@
 @import "variables";
 @import "typography";
 
+body {
+  background-color: $color-neutral-10;
+}
+
 .container {
   max-width: 1200px;
   padding: 0 20px;
@@ -12,7 +16,7 @@
   height: 44px;
   border: none;
   margin-top: 40px;
-  background-color: $color-primary-3;
+  background-color: $color-primary-4;
   color: $color-white;
   font-family: $ff-text-primary;
   letter-spacing: 0.8px;

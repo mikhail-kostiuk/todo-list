@@ -1,16 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { TodosComponent } from './pages/todos/todos.component';
-import { AuthGuard } from './shared/services/auth.guard';
+import { HomeComponent } from './modules/home/pages/home/home.component';
+import { LoginComponent } from './modules/auth/pages/login/login.component';
+import { RegisterComponent } from './modules/auth/pages/register/register.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
-  { path: 'todos', component: TodosComponent, canActivate: [AuthGuard] },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./modules/home/home.module').then((m) => m.HomeModule),
+  },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
+    path: 'todos',
+    loadChildren: () =>
+      import('./modules/todos/todos.module').then((m) => m.TodosModule),
+  },
 ];
 
 @NgModule({
