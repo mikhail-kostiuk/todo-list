@@ -1,29 +1,31 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 import User from 'src/app/shared/interfaces/User';
 import { AuthService } from 'src/app/core/authentification/auth.service';
 import { TodoService } from '../../services/todo.service';
+import Todo from '../../interfaces/Todo';
 
 @Component({
-  selector: 'app-todo-add',
-  templateUrl: './todo-add.component.html',
-  styleUrls: ['./todo-add.component.scss'],
+  selector: 'app-todo-edit',
+  templateUrl: './todo-edit.component.html',
+  styleUrls: ['./todo-edit.component.scss'],
 })
-export class TodoAddComponent implements OnInit {
+export class TodoEditComponent implements OnInit {
   user$: Observable<User>;
   user: User;
-  addTodoForm: FormGroup;
+  editTodoForm: FormGroup;
   error: string;
-  @Output() added = new EventEmitter();
+  @Input() todo: Todo;
+  @Output() edited = new EventEmitter();
 
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private todoService: TodoService
   ) {
-    this.addTodoForm = this.formBuilder.group({
+    this.editTodoForm = this.formBuilder.group({
       name: '',
       deadline: null,
       priority: 'low',
@@ -34,18 +36,21 @@ export class TodoAddComponent implements OnInit {
     this.authService.user$.subscribe((user) => {
       this.user = user;
     });
+    this.editTodoForm.setValue({
+      name: this.todo.name,
+      deadline: this.todo.deadline,
+      priority: this.todo.priority,
+    });
   }
 
   onSubmit({ name, deadline, priority }): void {
-    this.todoService.addTodo({
+    this.todoService.editTodo(
+      this.todo.id,
       name,
-      deadline: new Date(deadline).getTime(),
-      priority,
-      createdAt: Date.now(),
-      createdBy: this.user.uid,
-      checked: false,
-    });
+      new Date(deadline).getTime(),
+      priority
+    );
 
-    this.added.emit();
+    this.edited.emit();
   }
 }

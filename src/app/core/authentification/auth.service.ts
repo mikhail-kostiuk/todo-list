@@ -23,7 +23,6 @@ export class AuthService {
   ) {
     this.user$ = this.fireAuth.authState.pipe(
       switchMap((user) => {
-        console.log(user);
         if (user) {
           return this.firestore.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
@@ -34,7 +33,6 @@ export class AuthService {
   }
 
   async signUp(email: string, password: string): Promise<boolean> {
-    console.log('signUp');
     const createdUser: auth.UserCredential = await this.fireAuth.createUserWithEmailAndPassword(
       email,
       password

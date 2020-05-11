@@ -1,0 +1,55 @@
+<div
+  [ngClass]="
+    'todo ' +
+    'todo--' +
+    todo.priority +
+    ' todo--' +
+    (isEditTodoOpen ? 'no-paddings' : null)
+  "
+>
+  <div *ngIf="isEditTodoOpen; else content">
+    <button
+      class="todo__button todo__button--cancel"
+      (click)="toggleEditTodoForm()"
+    >
+      <app-minus-icon></app-minus-icon>
+    </button>
+  </div>
+  <ng-template #content>
+    <div class="todo__content">
+      <div class="todo__info">
+        <span class="todo__name">{{ todo.name }}</span>
+        <span class="todo__deadline" *ngIf="todo.deadline"
+          >deadline: {{ todo.deadline }}</span
+        >
+      </div>
+      <div class="todo__controls">
+        <input
+          class="todo__check"
+          type="checkbox"
+          name="status"
+          id="status"
+          [checked]="todo.checked"
+          (change)="toggleCheckbox()"
+        />
+        <button
+          class="todo__button todo__button--edit"
+          type="button"
+          (click)="toggleEditTodoForm()"
+        >
+          <app-edit-icon></app-edit-icon>
+        </button>
+        <button
+          class="todo__button todo__button--delete"
+          type="button"
+          (click)="deleteTodo()"
+        >
+          <app-cross-icon></app-cross-icon>
+        </button>
+      </div>
+    </div>
+  </ng-template>
+  <div class="todo__edit" *ngIf="isEditTodoOpen">
+    <app-todo-edit [todo]="todo"></app-todo-edit>
+  </div>
+</div>

@@ -4,6 +4,7 @@
       <div class="header__logo">
         <app-logo></app-logo>
       </div>
+      <!-- <nav class="header__nav" *ngIf="isAuthenticated; else auth"> -->
       <nav
         class="header__nav"
         *ngIf="authService.user$ | async as user; else auth"

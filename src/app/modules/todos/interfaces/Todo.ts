@@ -1,8 +1,9 @@
 export default interface Todo {
+  id?: string;
   name: string;
-  description: string;
   deadline: number;
   priority: string;
   createdAt: number;
   createdBy: string;
+  checked: boolean;
 }

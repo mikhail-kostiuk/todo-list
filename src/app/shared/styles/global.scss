@@ -29,14 +29,13 @@ body {
 
 form {
   font-family: $ff-text-primary;
-  margin: 100px auto 0 auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   max-width: 500px;
   padding: 50px;
   background-color: $color-white;
-  box-shadow: rgba(60, 66, 87, 0.32) 0px 7px 14px 0px,
-    rgba(0, 0, 0, 0.32) 0px 3px 6px 0px;
+  // box-shadow: $box-shadow-primary;
 }
 
 .title {
@@ -52,10 +51,10 @@ label {
 }
 
 input {
-  height: 44px;
-  padding: 7px 14px;
-  border: 1px solid #e3e8ee;
-  margin-top: 10px;
+  // height: 44px;
+  // padding: 7px 14px;
+  // border: 1px solid #e3e8ee;
+  // margin-top: 10px;
 
   &:focus {
     outline: 3px solid $color-primary-7;
@@ -68,4 +67,9 @@ input {
   color: #f00;
   font-size: 14px;
   text-align: center;
+}
+
+svg {
+  display: block;
+  height: 1em;
 }

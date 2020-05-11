@@ -1,0 +1,25 @@
+<div class="container">
+  <ul class="todo-list">
+    <li class="todo-list__item" *ngFor="let todo of todos">
+      <app-todo [todo]="todo"></app-todo>
+    </li>
+    <li class="todo-list__item">
+      <button class="todo-list__button" (click)="toggleAddTodoForm()">
+        <div
+          class="todo-list__icon todo-list__icon--minus"
+          *ngIf="isAddTodoOpen; else close"
+        >
+          <app-minus-icon></app-minus-icon>
+        </div>
+        <ng-template #close>
+          <div class="todo-list__icon todo-list__icon--plus">
+            <app-plus-icon></app-plus-icon>
+          </div>
+        </ng-template>
+      </button>
+      <div *ngIf="isAddTodoOpen">
+        <app-todo-add (added)="onAdded()"></app-todo-add>
+      </div>
+    </li>
+  </ul>
+</div>
