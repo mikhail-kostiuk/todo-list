@@ -20,16 +20,21 @@ export class RegisterComponent {
     this.registerForm = this.formBuilder.group({
       email: '',
       password: '',
+      confirmPassword: '',
     });
   }
 
-  async onSubmit({ email, password }): Promise<boolean> {
-    try {
-      await this.authService.signUp(email, password);
+  async onSubmit({ email, password, confirmPassword }): Promise<boolean> {
+    if (password === confirmPassword) {
+      try {
+        await this.authService.signUp(email, password);
 
-      return this.router.navigate(['/todos']);
-    } catch (err) {
-      this.error = err.message;
+        return this.router.navigate(['/todos']);
+      } catch (err) {
+        this.error = err.message;
+      }
+    } else {
+      this.error = 'Passwords does not match';
     }
   }
 }

@@ -26,6 +26,16 @@
         type="password"
         formControlName="password"
       />
+      <label class="form__label" for="confirmPassword">
+        Confirm password
+      </label>
+      <input
+        class="form__input"
+        id="confirmPassword"
+        name="confirmPassword"
+        type="password"
+        formControlName="confirmPassword"
+      />
       <div *ngIf="error" class="error">
         {{ error }}
       </div>
