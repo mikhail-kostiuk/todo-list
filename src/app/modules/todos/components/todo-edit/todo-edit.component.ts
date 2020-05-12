@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
+import * as moment from 'moment';
 
 import User from 'src/app/shared/interfaces/User';
 import { AuthService } from 'src/app/core/authentification/auth.service';
@@ -38,7 +39,7 @@ export class TodoEditComponent implements OnInit {
     });
     this.editTodoForm.setValue({
       name: this.todo.name,
-      deadline: this.todo.deadline,
+      deadline: moment(new Date(this.todo.deadline)).format('YYYY-MM-DD'),
       priority: this.todo.priority,
     });
   }

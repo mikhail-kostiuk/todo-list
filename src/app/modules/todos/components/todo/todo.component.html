@@ -20,7 +20,7 @@
       <div class="todo__info">
         <span class="todo__name">{{ todo.name }}</span>
         <span class="todo__deadline" *ngIf="todo.deadline"
-          >deadline: {{ todo.deadline }}</span
+          >deadline: {{ todo.deadline | date }}</span
         >
       </div>
       <div class="todo__controls">
