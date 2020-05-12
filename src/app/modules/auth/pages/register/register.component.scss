@@ -1,0 +1,12 @@
+@import "variables";
+
+.register {
+  margin-top: 20vh;
+
+  &__form {
+    max-width: 500px;
+    padding: 50px;
+    margin: auto;
+    box-shadow: $box-shadow-primary;
+  }
+}

@@ -1,15 +1,26 @@
 <div class="container">
-  <div class="inner">
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
-      <span class="title">Create your TodoList account</span>
-      <label for="email">
+  <div class="register">
+    <form
+      class="form register__form"
+      [formGroup]="registerForm"
+      (ngSubmit)="onSubmit(registerForm.value)"
+    >
+      <span class="form__title">Create your TodoList account</span>
+      <label class="form__label" for="email">
         Email
       </label>
-      <input id="email" name="email" type="email" formControlName="email" />
-      <label for="password">
+      <input
+        class="form__input"
+        id="email"
+        name="email"
+        type="email"
+        formControlName="email"
+      />
+      <label class="form__label" for="password">
         Password
       </label>
       <input
+        class="form__input"
         id="password"
         name="password"
         type="password"

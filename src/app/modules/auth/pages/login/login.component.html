@@ -1,15 +1,26 @@
 <div class="container">
-  <div class="inner">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
-      <span class="title">Sign in to your account</span>
-      <label for="email">
+  <div class="login">
+    <form
+      class="form login__form"
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit(loginForm.value)"
+    >
+      <span class="form__title">Sign in to your account</span>
+      <label class="form__label" for="email">
         Email
       </label>
-      <input id="email" name="email" type="email" formControlName="email" />
-      <label for="password">
+      <input
+        class="form__input"
+        id="email"
+        name="email"
+        type="email"
+        formControlName="email"
+      />
+      <label class="form__label" for="password">
         Password
       </label>
       <input
+        class="form__input"
         id="password"
         name="password"
         type="password"

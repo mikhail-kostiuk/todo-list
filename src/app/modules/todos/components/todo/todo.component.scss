@@ -1,31 +1,25 @@
 @import "variables";
 
 .todo {
-  // display: flex;
-  // align-items: center;
   width: 100%;
-  padding: 37px;
   background-color: $color-white;
   font-family: $ff-text-primary;
-
-  &--low {
-    border-left: 6px solid green;
-  }
-  &--medium {
-    border-left: 6px solid yellow;
-  }
-  &--high {
-    border-left: 6px solid red;
-  }
-
-  &--no-paddings {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
 
   &__content {
     display: flex;
     align-items: center;
+    padding: 30px;
+    padding-right: 36px;
+
+    &--low {
+      border-left: 6px solid green;
+    }
+    &--medium {
+      border-left: 6px solid yellow;
+    }
+    &--high {
+      border-left: 6px solid red;
+    }
   }
 
   &__info {
@@ -39,7 +33,7 @@
 
   &__deadline {
     display: block;
-    margin-top: 10px;
+    margin-top: 8px;
     font-size: 14px;
   }
 
@@ -76,7 +70,7 @@
       justify-content: center;
       align-items: center;
       width: 100%;
-      padding: 25px 0;
+      padding: 30px 0;
       border: none;
       margin-left: 0;
       background-color: $color-white;

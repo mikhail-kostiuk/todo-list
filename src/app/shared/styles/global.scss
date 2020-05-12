@@ -27,37 +27,30 @@ body {
   cursor: pointer;
 }
 
-form {
-  font-family: $ff-text-primary;
-  margin: 0 auto;
+.form {
   display: flex;
   flex-direction: column;
   max-width: 500px;
-  padding: 50px;
   background-color: $color-white;
-  // box-shadow: $box-shadow-primary;
-}
+  font-family: $ff-text-primary;
 
-.title {
-  display: block;
-  padding-bottom: 14px;
-  font-size: 20px;
-}
+  &__title {
+    display: block;
+    padding-bottom: 14px;
+    font-size: 20px;
+  }
 
-label {
-  margin-top: 20px;
-  font-size: 14px;
-  font-weight: 700;
-}
+  &__label {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 700;
+  }
 
-input {
-  // height: 44px;
-  // padding: 7px 14px;
-  // border: 1px solid #e3e8ee;
-  // margin-top: 10px;
-
-  &:focus {
-    outline: 3px solid $color-primary-7;
+  &__input {
+    height: 44px;
+    padding: 7px 14px;
+    border: 1px solid $color-neutral-6;
+    margin-top: 10px;
   }
 }
 

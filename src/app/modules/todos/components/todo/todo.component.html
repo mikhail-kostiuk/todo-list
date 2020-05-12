@@ -1,12 +1,4 @@
-<div
-  [ngClass]="
-    'todo ' +
-    'todo--' +
-    todo.priority +
-    ' todo--' +
-    (isEditTodoOpen ? 'no-paddings' : null)
-  "
->
+<div class="todo">
   <div *ngIf="isEditTodoOpen; else content">
     <button
       class="todo__button todo__button--cancel"
@@ -16,7 +8,7 @@
     </button>
   </div>
   <ng-template #content>
-    <div class="todo__content">
+    <div [ngClass]="'todo__content ' + 'todo__content--' + todo.priority">
       <div class="todo__info">
         <span class="todo__name">{{ todo.name }}</span>
         <span class="todo__deadline" *ngIf="todo.deadline"

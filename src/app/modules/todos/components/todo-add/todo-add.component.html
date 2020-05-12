@@ -1,17 +1,22 @@
 <form
-  class="todo-add"
+  class="form todo-add"
   [formGroup]="addTodoForm"
   (ngSubmit)="onSubmit(addTodoForm.value)"
 >
-  <label for="name">Task</label>
-  <input type="text" formControlName="name" id="name" />
-  <label for="date">Deadline (optional)</label>
-  <input type="date" formControlName="deadline" id="deadline" />
-  <label for="priority">Priority</label>
-  <select class="todo-add__select" formControlName="priority" id="priority">
+  <label class="form__label" for="name">Task</label>
+  <input class="form__input" type="text" formControlName="name" id="name" />
+  <label class="form__label" for="date">Deadline (optional)</label>
+  <input
+    class="form__input"
+    type="date"
+    formControlName="deadline"
+    id="deadline"
+  />
+  <label class="form__label" for="priority">Priority</label>
+  <select class="form__input" formControlName="priority" id="priority">
     <option value="high">High</option>
     <option value="medium">Medium</option>
     <option value="low">Low</option>
   </select>
-  <button class="button" type="submit">Add</button>
+  <button class="button" type="submit">Add Task</button>
 </form>

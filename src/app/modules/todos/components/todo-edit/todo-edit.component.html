@@ -1,15 +1,27 @@
 <form
-  class="todo-edit"
+  class="form todo-edit"
   [formGroup]="editTodoForm"
   (ngSubmit)="onSubmit(editTodoForm.value)"
 >
-  <label [for]="'name-edit-' + todo.id">Task</label>
-  <input type="text" formControlName="name" [id]="'name-edit-' + todo.id" />
-  <label [for]="'date-edit-' + todo.id">Deadline (optional)</label>
-  <input type="date" formControlName="deadline" [id]="'date-edit-' + todo.id" />
-  <label [for]="'priority-edit-' + todo.id">Priority</label>
+  <label class="form__label" [for]="'name-edit-' + todo.id">Task</label>
+  <input
+    class="form__input"
+    type="text"
+    formControlName="name"
+    [id]="'name-edit-' + todo.id"
+  />
+  <label class="form__label" [for]="'date-edit-' + todo.id"
+    >Deadline (optional)</label
+  >
+  <input
+    class="form__input"
+    type="date"
+    formControlName="deadline"
+    [id]="'date-edit-' + todo.id"
+  />
+  <label class="form__label" [for]="'priority-edit-' + todo.id">Priority</label>
   <select
-    class="todo-edit__select"
+    class="form__input"
     formControlName="priority"
     [id]="'priority-edit-' + todo.id"
   >
