@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-
-import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 
 import User from '../../shared/interfaces/User';
 
@@ -55,6 +53,7 @@ export class AuthService {
 
   async signOut(): Promise<boolean> {
     await this.fireAuth.signOut();
+
     return this.router.navigate(['/auth/login']);
   }
 }

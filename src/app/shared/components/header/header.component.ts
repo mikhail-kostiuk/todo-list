@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AppState } from '../../../store/app.states';
+// import { AppState } from '../../../store/app.states';
 import { AuthService } from '../../../core/authentification/auth.service';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import User from '../../interfaces/User';
+// import { Store } from '@ngrx/store';
+// import { Observable } from 'rxjs';
+// import User from '../../interfaces/User';
 
 @Component({
   selector: 'app-header',
